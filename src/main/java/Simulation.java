@@ -1,5 +1,5 @@
 public class Simulation {
-    Integer start;
+    //Integer start;
     Integer numberOfDie;
     Integer numberOfTosses;
 
@@ -30,8 +30,11 @@ public class Simulation {
         //loop through results
         for (int i = numberOfDie; i < percentArray.length; i++) {
             //if (bin.getBin(i) != null) {
-                System.out.println(String.format("%2d : %6d : %1.2f %s", i, bin.getBin(i), percentArray[i], printStars(percentArray[i])));
-            //}
+                System.out.print(String.format("%2d : %6d : %1.2f\t", i, bin.getBin(i), percentArray[i]));
+
+            printStars(percentArray[i]);
+            System.out.println();
+                //}
         }
         //print  elements in results
         //use results.getBin(binTotal) to access totals in each bin
@@ -43,7 +46,8 @@ public class Simulation {
         String rowOfStars = "";
         Integer numberOfStars = (int) (value * 100);
         for (int i = 1; i <= numberOfStars; i++) {
-            rowOfStars += "*";
+            System.out.print("*");
+            //rowOfStars += "*";
         }
         return rowOfStars;
     }
