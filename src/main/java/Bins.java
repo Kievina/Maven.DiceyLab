@@ -1,7 +1,7 @@
 
 public class Bins {
-    Integer start;
-    Integer end;
+    private Integer start;
+    private Integer end;
     Integer[] results;
 
     public Bins(Integer start, Integer end) {
@@ -10,7 +10,7 @@ public class Bins {
         //Integer startIdx = 0;
         Integer endIdx = end + 1;
         results = new Integer[endIdx];
-        for(int i = start; i < results.length; i++) {
+        for (int i = start; i < results.length; i++) {
             results[i] = 0;
         }
     }
@@ -25,7 +25,7 @@ public class Bins {
     }
 
     public void incrementBin(Integer binIdx) {
-    //binIdx is equal to result from calling tossAndSum() on dice
+        //binIdx is equal to result from calling tossAndSum() on dice
         results[binIdx]++;
     }
 
