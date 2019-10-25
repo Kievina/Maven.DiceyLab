@@ -10,7 +10,7 @@ public class Bins {
         //Integer startIdx = 0;
         Integer endIdx = end + 1;
         results = new Integer[endIdx];
-        for (int i = start; i < results.length; i++) {
+        for (int i = start-2; i < results.length; i++) {
             results[i] = 0;
         }
     }

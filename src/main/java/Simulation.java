@@ -5,9 +5,9 @@ public class Simulation {
 
 
     public static void main(String[] args) {
-        Simulation sim = new Simulation(2, 50);
-        sim.runSimulation();
-        sim.printResults();
+        Simulation sim = new Simulation(2, 5000);
+
+        sim.printResults(sim.runSimulation());
 
     }
 
@@ -17,8 +17,8 @@ public class Simulation {
     }
 
     public Bins runSimulation() {
-        Dice dice = new Dice(2);
-        Bins bin = new Bins(2, 12);
+        Dice dice = new Dice(numberOfDie);
+        Bins bin = new Bins(numberOfDie, numberOfDie*6);
         for (int i = 0; i < numberOfTosses; i++) {
             bin.incrementBin(dice.tossAndSum());
         }
@@ -28,8 +28,10 @@ public class Simulation {
     public void printResults(Bins bin) {
         Double[] percentArray = binPercent(bin);
         //loop through results
-        for (int i = start; i < percentArray.length; i++) {
-            System.out.println(String.format("", i, bin.getBin(i), percentArray[i], printStars(percentArray[i])));
+        for (int i = numberOfDie; i < percentArray.length; i++) {
+            //if (bin.getBin(i) != null) {
+                System.out.println(String.format("%2d : %6d : %1.2f %s", i, bin.getBin(i), percentArray[i], printStars(percentArray[i])));
+            //}
         }
         //print  elements in results
         //use results.getBin(binTotal) to access totals in each bin
@@ -48,8 +50,11 @@ public class Simulation {
 
     public Double[] binPercent(Bins bin) {
         Double[] percentArray = new Double[numberOfDie * 6 + 1];
-        for (int i = start; i < numberOfDie * 6 + 1; i++) {
-            percentArray[i] = ((double) bin.getBin(i)) / numberOfTosses;
+        for (int i = numberOfDie; i < numberOfDie * 6 + 1; i++) {
+            //if (bin.getBin(i) != null) {
+                percentArray[i] = ((double) bin.getBin(i)) / numberOfTosses;
+            //}
+
         }
         return percentArray;
     }
