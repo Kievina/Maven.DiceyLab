@@ -10,6 +10,5 @@ public class DiceTest {
 
     @Test
     public void tossAndSum() {
-
     }
 }
